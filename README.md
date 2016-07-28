@@ -11,5 +11,3 @@
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215723/dde8499e-54ab-11e6-95cf-4485c3367595.png)
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215722/dde5aa68-54ab-11e6-80f7-12e600f18c88.png)
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215721/dde3809e-54ab-11e6-9aa0-ea12be5d90e5.png)
-![alt tag](https://cloud.githubusercontent.com/assets/14320184/14725117/24dd035a-07e8-11e6-96e2-f2af3893a040.jpg)
-![alt tag](https://cloud.githubusercontent.com/assets/14320184/14725120/24e232b2-07e8-11e6-9750-9c0ebb276d13.jpg)
