@@ -262,12 +262,12 @@ class DrawView: UIView {
             //start lines for the board if only if it hasn't already been drawn and if there isn't already 4 touch events
             if(!boardDrawn && finishedLines.count < 4){
                 for touch in touches {
-                    let t = touch.preciseLocationInView(self)
+                    let t = touch.locationInView(self)
                     lineStartLocDic.updateValue(t, forKey: touch.hash) /// store start locations
                 }
             } else { //if the board is drawn draw shapes
                 var cords = [CGPoint]()
-                cords.append(touches.first!.preciseLocationInView(self))
+                cords.append(touches.first!.locationInView(self))
                 
                 let shape = Shape(cords: cords)
                 curShapes.append(shape)
@@ -280,14 +280,14 @@ class DrawView: UIView {
         if(!boardDrawn && !gameOver){
             //reset the start locations count
             for touch in touches {
-                let location = touch.preciseLocationInView(self) //get location in view co-ordinates
+                let location = touch.locationInView(self) //get location in view co-ordinates
                 let newLine = Line(begin: lineStartLocDic[touch.hash]!, end: location)
                 let key = NSValue(nonretainedObject: touch)
                 currentLines[key] = newLine
             }
             
         } else if(curShapes.count > 0){//if drawing shape track these coordinates
-            curShapes[curShapes.endIndex-1].coordinates.append(touches.first!.preciseLocationInView(self))
+            curShapes[curShapes.endIndex-1].coordinates.append(touches.first!.locationInView(self))
         }
         
         setNeedsDisplay()
@@ -298,7 +298,7 @@ class DrawView: UIView {
             //if the board is not yet drawn, draw the current lines
             if(!boardDrawn){
                 for touch in touches {
-                    let location = touch.preciseLocationInView(self) //get location in view co-ordinates
+                    let location = touch.locationInView(self) //get location in view co-ordinates
                     let newLine = Line(begin: lineStartLocDic[touch.hash]!, end: location)
                     let key = NSValue(nonretainedObject: touch)
                     currentLines[key] = newLine
