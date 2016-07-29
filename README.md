@@ -7,6 +7,11 @@
 * In the event of a win, a line is drawn connecting the points identifying the winner, their score will increase by one, and a menu will appear identifying the winner, current score, a clear score option, as well as a play again button. The play again button clears the game board and resets the game. 
 * In the event of a tie a menu will appear identifying a tie as well as the same options in the event of a win.
 
+
+##Download Link
+Available for a free download in the iOS App store: https://itunes.apple.com/us/app/draw-tic-tac-toe/id1107064952?ls=1&mt=8
+
+
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215720/ddd77114-54ab-11e6-8dd2-da253127567b.png)
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215723/dde8499e-54ab-11e6-95cf-4485c3367595.png)
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215722/dde5aa68-54ab-11e6-80f7-12e600f18c88.png)
