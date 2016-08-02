@@ -9,7 +9,7 @@
 
 
 ##Download Link
-Available for a free download in the iOS App store: https://itunes.apple.com/us/app/draw-tic-tac-toe/id1107064952?ls=1&mt=8
+Available for a free download in the iOS App store: https://itunes.apple.com/us/app/draw-tic-tac-toe/id1107064952?mt=8
 
 
 ![alt tag](https://cloud.githubusercontent.com/assets/14320184/17215720/ddd77114-54ab-11e6-8dd2-da253127567b.png)
