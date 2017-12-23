@@ -112,7 +112,7 @@
 					5D28AB4D1CA07A9A00208CFA = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = UDGJ8L64CG;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -285,7 +285,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DrawTicTacToe.DrawTicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -301,7 +301,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DrawTicTacToe.DrawTicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -358,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = DrawTicTacToe.DrawTicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Distribution;
 		};

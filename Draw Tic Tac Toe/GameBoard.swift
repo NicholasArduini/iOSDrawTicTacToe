@@ -8,18 +8,42 @@
 
 import Foundation
 import CoreGraphics
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GameBoard {
     //baord lines to be sorted to be idfentified no matter the order they are drawn
-    private var smallestXLines = [Line]()
-    private var smallestYLines = [Line]()
+    fileprivate var smallestXLines = [Line]()
+    fileprivate var smallestYLines = [Line]()
     
     func resetBoard(){
         smallestXLines.removeAll()
         smallestYLines.removeAll()
     }
     
-    func findIndex(lines: [Line], line: Line) -> Int{
+    func findIndex(_ lines: [Line], line: Line) -> Int{
         var index = 0
         for l in lines {
             if(l.begin.x == line.begin.x && l.begin.y == line.begin.y &&
@@ -32,7 +56,7 @@ class GameBoard {
     }
     
     //find the horizontal board lines
-    func getSmallestX(inout lines: [Line], inout smallestLines: [Line]){
+    func getSmallestX(_ lines: inout [Line], smallestLines: inout [Line]){
         var smallestLine : Line
         var smallestX : CGFloat
         smallestX = 100000
@@ -51,12 +75,12 @@ class GameBoard {
         
         smallestLines.append(smallestLine)
         if(findIndex(lines, line: smallestLine) > -1){
-            lines.removeAtIndex(findIndex(lines, line: smallestLine))
+            lines.remove(at: findIndex(lines, line: smallestLine))
         }
     }
     
     //find the vertial board lines
-    func getSmallestY(inout lines: [Line], inout smallestLines: [Line]){
+    func getSmallestY(_ lines: inout [Line], smallestLines: inout [Line]){
         var smallestLine : Line
         var smallestY : CGFloat
         smallestY = 100000
@@ -75,13 +99,13 @@ class GameBoard {
         
         smallestLines.append(smallestLine)
         if(findIndex(lines, line: smallestLine) > -1){
-            lines.removeAtIndex(findIndex(lines, line: smallestLine))
+            lines.remove(at: findIndex(lines, line: smallestLine))
         }
     }
     
     //sort lines in order so the horizontal lines are sorted by closest to the top
     //the vertial lines are sorted by closest to the left side
-    func analyzeBoard(finishedLines: [Line]){
+    func analyzeBoard(_ finishedLines: [Line]){
         var tempLines = finishedLines
         
         getSmallestX(&tempLines, smallestLines: &smallestXLines)
@@ -90,11 +114,11 @@ class GameBoard {
         getSmallestY(&tempLines, smallestLines: &smallestYLines)
         
         //sort the smallest line collections
-        smallestXLines.sortInPlace { (line1, line2) -> Bool in
+        smallestXLines.sort { (line1, line2) -> Bool in
             return line1.begin.y < line2.begin.y
         }
         
-        smallestYLines.sortInPlace { (line1, line2) -> Bool in
+        smallestYLines.sort { (line1, line2) -> Bool in
             return line1.begin.x < line2.begin.x
         }
         
@@ -117,7 +141,7 @@ class GameBoard {
     }
     
     //determine where on the board the shape is
-    func findCell(xCords: CGFloat, yCords: CGFloat) -> String{
+    func findCell(_ xCords: CGFloat, yCords: CGFloat) -> String{
         let lineX1 = smallestXLines.first
         let lineX2 = smallestXLines.last
         let lineY1 = smallestYLines.first
@@ -152,7 +176,7 @@ class GameBoard {
     }
     
     //return a cell array that identifies the shape in a cell
-    func getAllCellShapes(inout cells: [Shape], shapes: [Shape]){
+    func getAllCellShapes(_ cells: inout [Shape], shapes: [Shape]){
         for _ in 0...8 {
             let newShape = Shape()
             cells.append(newShape)
@@ -182,7 +206,7 @@ class GameBoard {
     }
     
     //prints the caracture to the console
-    func drawCaracBoard(shapes: [Shape]){
+    func drawCaracBoard(_ shapes: [Shape]){
         var cells = [Shape]()
         
         getAllCellShapes(&cells, shapes: shapes)
@@ -193,7 +217,7 @@ class GameBoard {
     }
     
     //checks if the given letter has won
-    func didWin(shapes: [Shape], letter: String) -> Bool{
+    func didWin(_ shapes: [Shape], letter: String) -> Bool{
         
         var cells = [Shape]()
         
@@ -217,7 +241,7 @@ class GameBoard {
     }
     
     //check if there is a tie
-    func tie(shapes: [Shape]) -> Bool{
+    func tie(_ shapes: [Shape]) -> Bool{
         var cells = [Shape]()
         
         getAllCellShapes(&cells, shapes: shapes)
@@ -230,7 +254,7 @@ class GameBoard {
     }
     
     //check if the given cell is free
-    func cellTaken(cell: String, shapes: [Shape]) ->Bool {
+    func cellTaken(_ cell: String, shapes: [Shape]) ->Bool {
         
         for shape in shapes {
             if(shape.cell == cell){
@@ -242,7 +266,7 @@ class GameBoard {
     }
     
     //when a winner is found draw a line connecting the winner depending on where it is placed
-    func winLine(shapes: [Shape], letter: String) ->Line{
+    func winLine(_ shapes: [Shape], letter: String) ->Line{
         var cells = [Shape]()
         
         getAllCellShapes(&cells, shapes: shapes)
