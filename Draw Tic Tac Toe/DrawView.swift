@@ -40,13 +40,15 @@ class DrawView: UIView {
     @IBOutlet var gameInfoLabel: UILabel!
     @IBOutlet var xScoreLabel: UILabel!
     @IBOutlet var oScoreLabel: UILabel!
-    @IBOutlet var menuXScoreLabel: UILabel!
-    @IBOutlet var menuOScoreLabel: UILabel!
+    @IBOutlet weak var clearScoreButton: UIButton!
     
     //play again menu to be shown after game is over
     @IBOutlet var menuBlurr: UIVisualEffectView!
     @IBAction func playAgainButton(_ sender: AnyObject) {
         menuBlurr.isHidden = true
+        gameInfoLabel.isHidden = false
+        clearScoreButton.isHidden = true
+        
         resetGame()
     }
     @IBAction func clearScoreButton(_ sender: AnyObject) {
@@ -121,7 +123,7 @@ class DrawView: UIView {
     }
     
     //delay the program, to be used to delay the play again menu from showing up
-    func delay(_ delay:Double, closure:()->()) {
+    func delay(_ delay:Double, closure:@escaping ()->()) {
         DispatchQueue.main.asyncAfter(
             deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
     }
@@ -129,8 +131,6 @@ class DrawView: UIView {
     func updateScore(){
         xScoreLabel.text = "\(NSLocalizedString("xScoreText", comment: "")) \(xWins)"
         oScoreLabel.text = "\(NSLocalizedString("oScoreText", comment: "")) \(oWins)"
-        menuXScoreLabel.text = "\(NSLocalizedString("xScoreText", comment: "")) \(xWins)"
-        menuOScoreLabel.text = "\(NSLocalizedString("oScoreText", comment: "")) \(oWins)"
     }
     
     func strokeLine(_ line: Line){
@@ -251,6 +251,8 @@ class DrawView: UIView {
             strokeLine(winLine)
             delay(0.3){
                 self.menuBlurr.isHidden = false
+                self.gameInfoLabel.isHidden = true
+                self.clearScoreButton.isHidden = false
             }
         }
     }

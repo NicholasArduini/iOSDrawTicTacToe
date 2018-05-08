@@ -28,7 +28,7 @@
 "q9" = "q9";
 
 //info label
-"drawBoard" = "Please draw the board to start the game";
+"drawBoard" = "Double tap to redraw board";
 "startGame" = "Either X or O can start";
 "xTurn" = "X's turn";
 "oTurn" = "O's turn";

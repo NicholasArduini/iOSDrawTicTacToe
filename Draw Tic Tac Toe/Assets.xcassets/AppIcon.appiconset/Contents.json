@@ -1,5 +1,29 @@
 {
   "images" : [
+	{
+      "size" : "20x20",
+      "idiom": "iphone",
+	  "filename" : "Rectangle 24-20@2x.png",
+      "scale": "2x"
+    },
+	{
+      "size" : "20x20",
+      "idiom": "iphone",
+	  "filename" : "Rectangle 24-20@3x.png",
+      "scale": "3x"
+    },
+	{
+      "size" : "20x20",
+      "idiom": "ipad",
+	  "filename" : "Rectangle 24-20.png",
+      "scale": "1x"
+    },
+    {
+      "size" : "20x20",
+      "idiom": "ipad",
+	  "filename" : "Rectangle 24-20@2x.png",
+      "scale": "2x"
+    },
     {
       "size" : "29x29",
       "idiom" : "iphone",
@@ -77,6 +101,12 @@
       "idiom" : "ipad",
       "filename" : "Rectangle 24-83.5@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "Rectangle 24-1024.png",
+      "scale" : "1x"
     }
   ],
   "info" : {
