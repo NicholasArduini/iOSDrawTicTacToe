@@ -115,7 +115,7 @@ class DrawView: UIView {
         setNeedsDisplay()
     }
     
-    func doubleTap(_ gestureRecognizer: UIGestureRecognizer){
+    @objc func doubleTap(_ gestureRecognizer: UIGestureRecognizer){
         //reset the game on double tap only if the game hasn't started
         if(!boardDrawn){
             resetGame()
